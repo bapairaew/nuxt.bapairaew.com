@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Post } from "~/utils/data/posts";
+import type { Post } from "~/utils/data/types";
 import dateformat from "dateformat";
 
 const props = defineProps<{

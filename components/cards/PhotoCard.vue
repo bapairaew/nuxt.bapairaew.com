@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import type { Photo } from "~/utils/data/photos";
+import type { Photo } from "~/utils/data/types";
 import dateformat from "dateformat";
 
 const props = defineProps<{

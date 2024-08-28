@@ -27,6 +27,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.14",
     "typescript": "^5.5.4",
+    "vite-plugin-top-level-await": "^1.4.4",
     "vue-tsc": "^2.0.29"
   }
 }

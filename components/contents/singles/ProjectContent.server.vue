@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getPosts } from "~/utils/data/posts";
-import dateformat from "dateformat";
 import { getProjects } from "~/utils/data/projects";
 
 const props = defineProps<{
