@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.13.2",
-    "@nuxt/image": "^1.7.0",
+    "@nuxt/fonts": "^0.7.2",
+    "@nuxt/image": "^1.7.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/dateformat": "^5.0.2",
     "@webzlodimir/vue-bottom-sheet": "^3.0.5",

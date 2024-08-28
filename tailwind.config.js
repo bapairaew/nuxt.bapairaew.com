@@ -4,7 +4,11 @@ import typography from "@tailwindcss/typography";
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ["Inter"],
+      },
+    },
   },
   plugins: [typography],
 };

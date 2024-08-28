@@ -15,6 +15,7 @@ function formatDate(date: string | undefined) {
 <template>
   <CardsCard v-bind="$attrs">
     <ImagesFilledImage
+      width="250"
       class="object-cover"
       :alt="props.photo.place"
       :src="`/photos/${props.photo.slug}.jpeg`"

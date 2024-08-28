@@ -27,7 +27,7 @@ useHead({
 
 <template>
   <ImagesFilledImage
-    placeholder
+    width="1000"
     class="object-cover"
     :alt="photo.place"
     :src="`/photos/${photo.slug}.jpeg`"

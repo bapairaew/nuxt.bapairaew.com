@@ -15,34 +15,6 @@ const links = [
 ];
 </script>
 
-<style>
-.gradient {
-  background-image: conic-gradient(
-    from 230.29deg at 51.63% 52.16%,
-    theme("colors.green.500") 0deg,
-    theme("colors.blue.500") 60deg,
-    theme("colors.pink.500") 120deg,
-    theme("colors.red.500") 180deg,
-    theme("colors.orange.500") 240deg,
-    theme("colors.purple.500") 300deg
-  );
-  filter: blur(100px);
-  animation: glow 1s linear forwards;
-  transform: translateZ(
-    0
-  ); /* Fix background does not show up properly in Safari */
-}
-
-@keyframes glow {
-  from {
-    opacity: theme("opacity.0");
-  }
-  to {
-    opacity: theme("opacity.50");
-  }
-}
-</style>
-
 <template>
   <section class="container relative mx-auto px-2 py-32">
     <div class="text-center">
