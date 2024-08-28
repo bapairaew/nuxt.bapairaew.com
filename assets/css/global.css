@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  @apply underline;
+}
+
+a[target="_blank"]::after {
+  content: " ↗";
+}
+
+body {
+  @apply bg-white text-black dark:bg-black dark:text-white;
+}
