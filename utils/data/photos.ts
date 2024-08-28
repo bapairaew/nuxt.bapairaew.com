@@ -3,8 +3,7 @@ import type { Photo } from "./types";
 let getPhotos: (slug?: string) => Promise<Photo[]> = async () => [];
 
 if (process.server) {
-  const exifr = await import("exifr");
-  const fs = await import("fs");
+  const { default: exifr } = await import("exifr");
   const { globby } = await import("globby");
   const { parse, join } = await import("path");
   const sharp = await import("sharp");
@@ -16,29 +15,32 @@ if (process.server) {
   };
 
   const getPhotosPath = (slug = "*") => {
-    return join(process.cwd(), `public/${slug}.jpeg`);
+    return join(process.cwd(), `public/photos/${slug}.jpeg`);
   };
 
   const getPhotoData = async (path: string): Promise<Photo> => {
-    const [exif, blurDataURL] = await Promise.all([
-      fs.promises.readFile(path).then(exifr.parse),
+    const [exifData, blurDataURL] = await Promise.all([
+      exifr.parse(path),
       getBlurDataURL(path),
     ]);
     const slug = parse(path).name;
-    const placeParts = exif.ImageDescription?.split(", ");
+
+    const placeParts = exifData.ImageDescription?.split(", ");
 
     const data: Photo = {
       slug,
       place: [placeParts[0], placeParts.pop()].join(", "),
       date:
-        exif.DateTimeOriginal?.toJSON() || exif.CreateDate?.toJSON() || null,
-      camera: exif.Model ? exif.Model : null,
-      fnumber: exif.FNumber,
-      iso: exif.ISO,
-      focalLength: exif.FocalLength,
-      exposureTime: exif.ExposureTime,
-      width: exif.ExifImageWidth, // Does not provide correct dimension
-      height: exif.ExifImageHeight, // Does not provide correct dimension
+        exifData.DateTimeOriginal?.toJSON() ||
+        exifData.CreateDate?.toJSON() ||
+        null,
+      camera: exifData.Model ? exifData.Model : null,
+      fnumber: exifData.FNumber,
+      iso: exifData.ISO,
+      focalLength: exifData.FocalLength,
+      exposureTime: exifData.ExposureTime,
+      width: exifData.ExifImageWidth, // Does not provide correct dimension
+      height: exifData.ExifImageHeight, // Does not provide correct dimension
       blurDataURL,
     };
 

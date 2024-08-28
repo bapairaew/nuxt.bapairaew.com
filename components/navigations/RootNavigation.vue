@@ -40,8 +40,6 @@ const activeLinkClassName = "no-underline text-neutral-900 dark:text-white";
 const route = useRoute();
 </script>
 
-<style></style>
-
 <template>
   <nav
     :class="
