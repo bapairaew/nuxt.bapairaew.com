@@ -9,6 +9,6 @@ useHead({
 
 <template>
   <NuxtLayout name="content">
-    <ContentsListsProjectsList />
+    <ContentsProjectsProjectsList />
   </NuxtLayout>
 </template>

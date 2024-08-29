@@ -11,6 +11,6 @@ const slug = route.params.slug as string;
     >
       ← Projects
     </NuxtLink>
-    <ContentsSinglesProjectContent :slug="slug" />
+    <ContentsProjectsProjectContent :slug="slug" />
   </NuxtLayout>
 </template>

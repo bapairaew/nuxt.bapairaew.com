@@ -8,6 +8,6 @@ const slug = route.params.slug as string;
     <NuxtLink class="block my-4 text-neutral-500" to="/photography">
       ← Photography
     </NuxtLink>
-    <ContentsSinglesPhotoContent :slug="slug" />
+    <ContentsPhotosPhotoContent :slug="slug" />
   </NuxtLayout>
 </template>

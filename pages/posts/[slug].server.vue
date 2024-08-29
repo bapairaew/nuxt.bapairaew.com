@@ -11,6 +11,6 @@ const slug = route.params.slug as string;
     >
       ← Posts
     </NuxtLink>
-    <ContentsSinglesPostContent :slug="slug" />
+    <ContentsPostsPostContent :slug="slug" />
   </NuxtLayout>
 </template>
