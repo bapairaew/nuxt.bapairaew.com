@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import type { Photo } from "~/utils/data/photos";
 import dateformat from "dateformat";
 import { getRemoteImagePath } from "~/utils/data/image";

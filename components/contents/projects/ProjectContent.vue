@@ -7,9 +7,12 @@ const props = defineProps<{
 
 const [project] = await getProjects(props.slug);
 
-const tagsMap = project.tags.reduce((map, tag) => {
-  return { ...map, [tag.type]: [...(map[tag.type] || []), tag.text] };
-}, {} as Record<string, string[]>);
+const tagsMap = project.tags.reduce(
+  (map, tag) => {
+    return { ...map, [tag.type]: [...(map[tag.type] || []), tag.text] };
+  },
+  {} as Record<string, string[]>
+);
 
 const techStack = [
   tagsMap["App type"]?.join(" · "),
@@ -44,7 +47,16 @@ useHead({
       {{ techStack }}
     </span>
     <div class="pt-4">
-      <ContentDoc :path="`/projects/${props.slug}`" />
+      <MDXContent :content="project.content">
+        <template #fallback>
+          <p>
+            <SkeletonsTextSkeleton className="w-full" />
+          </p>
+          <p>
+            <SkeletonsTextSkeleton className="w-full" />
+          </p>
+        </template>
+      </MDXContent>
     </div>
   </div>
 </template>

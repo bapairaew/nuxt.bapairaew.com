@@ -27,7 +27,19 @@ useHead({
       {{ post.keywords || "" }}
     </span>
     <div class="pt-4">
-      <MDXContent :content="post.content" />
+      <MDXContent :content="post.content">
+        <template #fallback>
+          <p>
+            <SkeletonsTextSkeleton className="w-full" />
+          </p>
+          <p>
+            <SkeletonsTextSkeleton className="w-full" />
+          </p>
+          <p>
+            <SkeletonsTextSkeleton className="w-full" />
+          </p>
+        </template>
+      </MDXContent>
     </div>
   </div>
 </template>
