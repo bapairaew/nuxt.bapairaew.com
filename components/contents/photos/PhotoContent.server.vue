@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { getPhotos } from "~/utils/data/photos";
 import dateformat from "dateformat";
+import { getRemoteImagePath } from "~/utils/data/image";
 
 const props = defineProps<{
   slug: string;
@@ -28,9 +29,8 @@ useHead({
 <template>
   <ImagesFilledImage
     width="1000"
-    class="object-cover"
     :alt="photo.place"
-    :src="`/photos/${photo.slug}.jpeg`"
+    :src="getRemoteImagePath(`/photos/${photo.slug}.jpeg`)"
   />
   <h1 class="mt-8 text-xl font-black">{{ photo.place }}</h1>
   <dl class="grid grid-cols-2 gap-2 mt-4">

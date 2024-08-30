@@ -27,7 +27,7 @@ useHead({
       {{ post.keywords || "" }}
     </span>
     <div class="pt-4">
-      <ContentDoc :path="`/posts/${props.slug}`" />
+      <MDXContent :content="post.content" />
     </div>
   </div>
 </template>

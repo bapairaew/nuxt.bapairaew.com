@@ -1,36 +1,16 @@
-import { type GrayMatterFileWithPath } from "./markdown";
-import type { Post } from "./types";
+import { getURL } from "./api";
 
-let getPosts: (slug?: string) => Promise<Post[]> = async () => [];
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  keywords: string;
+  publishedTime: string;
+  modifiedTime: string;
+  content: string;
+};
 
-if (process.server) {
-  const { getMarkdownFrontMatter } = await import("./markdown");
-  const path = await import("path");
-
-  const parsePost = (post: GrayMatterFileWithPath): Post => {
-    return {
-      slug: path.parse(post.path).name,
-      title: post.data.title,
-      description: post.data.description,
-      keywords: post.data.keywords,
-      publishedTime: post.data.publishedTime,
-      modifiedTime: post.data.modifiedTime,
-      content: post.content,
-    };
-  };
-
-  const getPostsPath = (slug = "*") => {
-    return path.join(process.cwd(), `content/posts/${slug}.mdx`);
-  };
-
-  getPosts = async (slug?: string) => {
-    const pattern = getPostsPath(slug);
-    const projects = (await getMarkdownFrontMatter(pattern))
-      .map(parsePost)
-      .filter((x) => x.publishedTime)
-      .reverse();
-    return projects;
-  };
-}
-
-export { getPosts };
+export const getPosts = async (slug?: string) => {
+  const data: Post[] = await $fetch(getURL("posts", slug));
+  return data;
+};

@@ -8,7 +8,7 @@ const props = defineProps<{
 
 const imageProps = {
   ...props,
-  class: `absolute h-full w-full m0 ${props.class || ""}`,
+  class: `absolute h-full w-full object-cover m0 ${props.class || ""}`,
 };
 </script>
 

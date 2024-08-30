@@ -6,8 +6,8 @@ useHead({
 </script>
 
 <template>
-  <ContentsHeroHeroSection />
-  <ContentsProjectsProjectsSection />
-  <ContentsPostsPostsSection />
-  <ContentsPhotosPhotosSection />
+  <ContentsHeroSection />
+  <ContentsProjectsSection />
+  <ContentsPostsSection />
+  <ContentsPhotosSection />
 </template>

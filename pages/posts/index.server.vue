@@ -7,6 +7,6 @@ useHead({
 
 <template>
   <NuxtLayout name="content">
-    <ContentsPostsPostsList />
+    <ContentsPostsList />
   </NuxtLayout>
 </template>

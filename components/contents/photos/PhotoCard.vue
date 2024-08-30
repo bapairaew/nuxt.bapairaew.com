@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import type { Photo } from "~/utils/data/types";
+import type { Photo } from "~/utils/data/photos";
 import dateformat from "dateformat";
+import { getRemoteImagePath } from "~/utils/data/image";
 
 const props = defineProps<{
   photo: Photo;
@@ -16,9 +17,8 @@ function formatDate(date: string | undefined) {
   <CardsCard v-bind="$attrs">
     <ImagesFilledImage
       width="250"
-      class="object-cover"
       :alt="props.photo.place"
-      :src="`/photos/${props.photo.slug}.jpeg`"
+      :src="getRemoteImagePath(`/photos/${props.photo.slug}.jpeg`)"
     />
     <div class="p-2">
       <CardsCardOverlayAnchor :href="`/photography/${props.photo.slug}`">
